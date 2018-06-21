@@ -1,10 +1,4 @@
-/* .menu-text {
-background-color: #fefefe
-}
 
-.top-bar-left {
-  background-color: #fefefe
-  } */
 .hero-search-filter {
   background: url("https://images.pexels.com/photos/106877/pexels-photo-106877.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") center center no-repeat;
   height: 300px;
@@ -12,9 +6,27 @@ background-color: #fefefe
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 30vh;
+  margin-bottom: 30px;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+          
+}
+
+.search-results{
+  /* max-width: 1100px; */
+  margin: auto;
+  margin-left: 70px;
+  margin-right: 70px;
+  border: 1px solid salmon;
+  padding: 30px;
+  border-radius: 5px;
+}
+.search-results h1{
+  font-size: 20px;
+  
+
 }
 
 .hero-search-filter-logo {
