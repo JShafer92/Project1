@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var mapAPI = "AIzaSyAaYM5-O2TkTLKDy3h9mSJzE98XYikCZho";
+    var mapAPI = "Axxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
     var mapURL = "https://www.google.com/maps/embed/v1/search?key=";
 
