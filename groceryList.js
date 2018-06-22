@@ -1,5 +1,4 @@
-$(document).on(load){
-
+$(document).ready(function(){
     //create var for recipe apikey and URL
     var recipeAPI = "";
     var 
@@ -18,18 +17,25 @@ $(document).on(load){
 
     var groceryList = ingredientList;
 
-    var groceryAPI = "";
+    var mapAPI = "";
 
-    var groceryURL = "" + groceryAPI;
+    var mapURL = "" + groceryAPI;
 
     $.ajax({
-        url: groceryURL,
+        url: mapURL
         method: "GET"
     }).then(function (response) {
         console.log(response);
     });
     
-    //create a list of grocery stores that have the ingredients and create direction button
+    //create a list of grocery stores that are near an entered zip/address
+    
     //or and order list through instacart?
 
-};
+});
+
+// function search(x,v){
+//     return (x + v);
+// }; 
+// var ducks = search("ducks" + " cobra chicken");
+// console.log(ducks)
