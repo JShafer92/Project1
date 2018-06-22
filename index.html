@@ -34,10 +34,20 @@
                     </i> Search </button>
             </form>
             <ul class="hero-search-filter-menu menu align-center">
-                <li id="grocery">
+                <li id="groceryBtn">
                     <a href="#">
                         <i class="fa fa-cutlery" aria-hidden="true"></i> Grocery Finder</a>
                 </li>
+                <div id="grocerysimpleModal" class="grocerymodal">
+                    <div class="grocerymodal-content">
+                        <span class="grocerycloseBtn">&times;</span>
+                        <p>Maps goes here</p>
+                        <!-- iframe for the map -->
+                        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaYM5-O2TkTLKDy3h9mSJzE98XYikCZho&q=grocery+store+near+me"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
                 <li>
                     <a href="#">
                         <i class="fa fa-cutlery" aria-hidden="true"></i> Favorites</a>
@@ -45,17 +55,11 @@
             </ul>
         </div>
     </header>
-
     <div class="search-results">
 
     </div>
 
-    <div class="grocery-map">
-        Maps goes here
-        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaYM5-O2TkTLKDy3h9mSJzE98XYikCZho&q=grocery+store+near+me"
-            allowfullscreen>
-        </iframe>
-    </div>
+
 
     <!-- <script src="js/vendor/jquery.js"></script> -->
     <!-- <script src="js/vendor/what-input.js"></script> -->
