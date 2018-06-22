@@ -12,11 +12,25 @@
 //     })
 // });
 
+// Here is our API
+var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57"
+var queryURL = "https://food2fork.com/api/search?key=" + "&q=" + userinput;
+
+
 
 $(".search-results").hide()
 
 $("#search").on ("submit", function (event){
   event.preventDefault()
+// calling an ajax request
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+
+  .then(function(response) {
+  });
+
   $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
   var searchTerm = $("#findtext").val()
   $(".search-results").show()
