@@ -13,32 +13,38 @@
 // });
 
 // Here is our API
-var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57"
-var queryURL = "https://food2fork.com/api/search?key=" + "&q=" + userinput;
+
+var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57";
+var queryURL = "https://food2fork.com/api/search?key=";
+
+$("#search").on("submit", function (event) {
+    event.preventDefault()
+    var userinput = $("#findtext").val();
+    var fullRequest = queryURL + recipeAPI + "&q=" + userinput;
+    // calling an ajax request
+    $.ajax({
+        url: fullRequest,
+        dataType: "json",
+        method: "GET"
+    })
+    console.log(userinput);
+
+
+    /*
+        .then(function (response) {
+            var imageUrl = response.recipes.title;
+        });
 
 
 
-$(".search-results").hide()
 
-$("#search").on ("submit", function (event){
-  event.preventDefault()
-// calling an ajax request
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-
-  .then(function(response) {
-    var imageUrl = response.recipes.title;
-    console.log(imageUrl);
-  });
-/*
-  $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
-  var searchTerm = $("#findtext").val()
-  $(".search-results").show(imageUrl)
-  $(".search-results").empty()
-  $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
-*/
+      $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
+      $(".search-results").hide()
+      var searchTerm = $("#findtext").val()
+      $(".search-results").show(imageUrl)
+      $(".search-results").empty()
+      $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
+    */
 });
 /*
 $(".grocery-map").hide()
