@@ -29,19 +29,22 @@ $("#search").on ("submit", function (event){
   })
 
   .then(function(response) {
+    var imageUrl = response.recipes.title;
+    console.log(imageUrl);
   });
-
+/*
   $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
   var searchTerm = $("#findtext").val()
-  $(".search-results").show()
+  $(".search-results").show(imageUrl)
   $(".search-results").empty()
   $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
-
-})
-
+*/
+});
+/*
 $(".grocery-map").hide()
 $("#grocery").on("click", function(){
   $(".grocery-map").show()
 
-
 })
+
+*/
