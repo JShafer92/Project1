@@ -27,15 +27,9 @@ $("#search").on("submit", function (event) {
         dataType: "json",
         method: "GET"
     })
-    console.log(userinput);
-
-
-    /*
         .then(function (response) {
             var imageUrl = response.recipes.title;
         });
-
-
 
 
       $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
@@ -44,7 +38,6 @@ $("#search").on("submit", function (event) {
       $(".search-results").show(imageUrl)
       $(".search-results").empty()
       $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
-    */
 });
 /*
 $(".grocery-map").hide()
