@@ -55,7 +55,6 @@
           flex-wrap: wrap;
 }
 
-<<<<<<< HEAD
 .grocerymodal {
   display: none;
   position: fixed;
@@ -87,8 +86,6 @@
   cursor: pointer;
 }
 
-=======
->>>>>>> origin/josh
 @media screen and (max-width: 39.9375em) {
   .hero-search-filter-menu li {
     -webkit-flex-basis: 50%;

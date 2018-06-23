@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(".search-results").hide()
 //click event for recipe results
 $("#search").on ("submit", function (event){
@@ -25,9 +24,6 @@ function closeModal (){
   groceryModal.style.display = "none";
 }
 
-
-
-=======
 // $(document).foundation();
 
 // $(function() {
@@ -84,4 +80,3 @@ $("#grocery").on("click", function(){
 })
 
 */
->>>>>>> origin/josh
