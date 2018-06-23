@@ -21,6 +21,8 @@ function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
 
     // create div var
     var recipeDiv = $("<div>");
+    // adding favorites button
+    var favoriteButton = $("<button id='favoriteButton'>Favorite</div>")
     // creating recipeTitle
     var recipeTitle = $("<div>" + recipeTitle + "</div>")
     // create recipePublisher
@@ -41,6 +43,8 @@ function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
     recipeDiv.append(recipePublisher);
     // adding link to text
     hrefLink.append(recipePublisher);
+        // appending button
+        recipeDiv.append(favoriteButton);
     // append div to search results
     $(".search-results").append(recipeDiv);
 }
