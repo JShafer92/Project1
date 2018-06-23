@@ -28,11 +28,16 @@ $("#search").on("submit", function (event) {
         method: "GET"
     })
         .then(function (response) {
+            //Creating for loop for 10 entries
+            for (i = 0; i < 11; i++) {
+                
             //Pulling data from the API
-            var recipeTitle = response.recipes[0].title;
-            var recipePublisher = response.recipes[0].publisher;
-            var recipeUrl = response.recipes[0].f2f_url;
-            var recipeImage = response.recipes[0].image_url;
+            var recipeTitle = response.recipes[i].title;
+            var recipePublisher = response.recipes[i].publisher;
+            var recipeUrl = response.recipes[i].f2f_url;
+            var recipeImage = response.recipes[i].image_url;
+
+            function repeat() {
             $(".hero-search-filter").css({ height: "150px", marginTop: "0px" })
             $(".search-results").hide()
             var searchTerm = $("#findtext").val()
@@ -40,19 +45,6 @@ $("#search").on("submit", function (event) {
             $(".search-results").empty()
             $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
             // Displaying data from the API
-            var ahref = recipeUrl;
-            var wholediv = $("<div>");
-            var image = $("<img src=" + recipeImage + ">");
-            var imageDiv = $("<img>");
-            imageDiv.attr("src", recipeImage);
-            imageDiv.attr("alt", "mmmm food");
-            $(".search-results").append(imageDiv);
-            $(".search-results").append(recipeTitle);
-            $(".search-results").append("Brought to you by: " + recipePublisher);
-            ahref.append(image);
-            wholediv.append(ahref);
-
-            /*
             $(".search-results").append("<a class href=" + recipeUrl + ">");
             var imageDiv = $("<img>");
             imageDiv.attr("src", recipeImage);
@@ -61,7 +53,22 @@ $("#search").on("submit", function (event) {
             $(".search-results").append(recipeTitle);
             $(".search-results").append("Brought to you by: " + recipePublisher);
             $(".search-results").append("</a>");
+            };
+            repeat();
+
+            /*
+            var ahref = recipeUrl;
+            var wholediv = $("<a href=" + recipeUrl + ">");
+            imageDiv.attr("src", recipeImage);
+            imageDiv.attr("alt", "mmmm food");
+            $(".search-results").append(imageDiv);
+            $(".search-results").append(recipeTitle);
+            $(".search-results").append("Brought to you by: " + recipePublisher);
+            var closingHref = $("</a>");
+            ahref.append(image);
+            wholediv.append(closingHref);
             */
+            };
         });
 });
 /*
