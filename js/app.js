@@ -27,17 +27,25 @@ $("#search").on("submit", function (event) {
         dataType: "json",
         method: "GET"
     })
-        .then(function(response) {
-            var imageUrl = response.recipes.title;
+        .then(function (response) {
+            var recipeTitle = response.recipes[0].title;
+            var recipePublisher = response.recipes[0].publisher;
+            var recipeUrl = response.recipes[0].f2f_url;
+            var recipeImage = response.recipes[0].image_url;
+            $(".hero-search-filter").css({ height: "150px", marginTop: "0px" })
+            $(".search-results").hide()
+            var searchTerm = $("#findtext").val()
+            $(".search-results").show()
+            $(".search-results").empty()
+            $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
+            var imageDiv = $("<img>");
+            imageDiv.attr("src", recipeImage);
+            imageDiv.attr("alt", "mmmm food");
+            $(".search-results").append(imageDiv);
+            $(".search-results").append(recipeTitle);
+            $(".search-results").append("Brought to you by: " + recipePublisher);
+            $(".search-results").append("Click the link for the recipe! " + recipeUrl);
         });
-
-
-      $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
-      $(".search-results").hide()
-      var searchTerm = $("#findtext").val()
-      $(".search-results").show()
-      $(".search-results").empty()
-      $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
 });
 /*
 $(".grocery-map").hide()
