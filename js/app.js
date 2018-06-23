@@ -17,10 +17,34 @@
 var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57";
 var queryURL = "https://food2fork.com/api/search?key=";
 
+function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage){
+    
+    // create div var
+    var recipeDiv = $("<div>");
+    // create a href var
+    var hrefLink = $('<a href="' +  recipeUrl + '">');
+    // create image var
+    var imageTag = $('<img src="'+ recipeImage +'">');
+    // append image to link
+    hrefLink.append(imageTag);
+    // append link to div
+    recipeDiv.append(hrefLink);
+    // append div to search results
+    $(".search-results").append(recipeDiv);
+}
+
 $("#search").on("submit", function (event) {
     event.preventDefault()
-    var userinput = $("#findtext").val();
-    var fullRequest = queryURL + recipeAPI + "&q=" + userinput;
+    $(".hero-search-filter").css({ height: "150px", marginTop: "0px" })
+    $(".search-results").hide()
+    $(".search-results").show()
+    $(".search-results").empty()
+    var searchTerm = $("#findtext").val()
+    $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
+
+    
+    var fullRequest = queryURL + recipeAPI + "&q=" + searchTerm;
+    
     // calling an ajax request
     $.ajax({
         url: fullRequest,
@@ -28,47 +52,22 @@ $("#search").on("submit", function (event) {
         method: "GET"
     })
         .then(function (response) {
-            //Creating for loop for 10 entries
-            for (i = 0; i < 11; i++) {
-                
-            //Pulling data from the API
-            var recipeTitle = response.recipes[i].title;
-            var recipePublisher = response.recipes[i].publisher;
-            var recipeUrl = response.recipes[i].f2f_url;
-            var recipeImage = response.recipes[i].image_url;
-
-            function repeat() {
-            $(".hero-search-filter").css({ height: "150px", marginTop: "0px" })
-            $(".search-results").hide()
-            var searchTerm = $("#findtext").val()
-            $(".search-results").show()
-            $(".search-results").empty()
-            $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
             // Displaying data from the API
-            $(".search-results").append("<a class href=" + recipeUrl + ">");
-            var imageDiv = $("<img>");
-            imageDiv.attr("src", recipeImage);
-            imageDiv.attr("alt", "mmmm food");
-            $(".search-results").append(imageDiv);
-            $(".search-results").append(recipeTitle);
-            $(".search-results").append("Brought to you by: " + recipePublisher);
-            $(".search-results").append("</a>");
-            };
-            repeat();
 
-            /*
-            var ahref = recipeUrl;
-            var wholediv = $("<a href=" + recipeUrl + ">");
-            imageDiv.attr("src", recipeImage);
-            imageDiv.attr("alt", "mmmm food");
-            $(".search-results").append(imageDiv);
-            $(".search-results").append(recipeTitle);
-            $(".search-results").append("Brought to you by: " + recipePublisher);
-            var closingHref = $("</a>");
-            ahref.append(image);
-            wholediv.append(closingHref);
-            */
-            };
+            //Creating for loop for 10 entries
+            for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
+                console.log(thisRecipe);
+                //Pulling data from the API
+                var recipeTitle = response.recipes[thisRecipe].title;
+                var recipePublisher = response.recipes[thisRecipe].publisher;
+                var recipeUrl = response.recipes[thisRecipe].f2f_url;
+                var recipeImage = response.recipes[thisRecipe].image_url;
+                console.log(recipeTitle, "out")
+                addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage);
+                
+
+            
+            }
         });
 });
 /*
