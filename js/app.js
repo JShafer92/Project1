@@ -28,6 +28,7 @@ $("#search").on("submit", function (event) {
         method: "GET"
     })
         .then(function (response) {
+            //Pulling data from the API
             var recipeTitle = response.recipes[0].title;
             var recipePublisher = response.recipes[0].publisher;
             var recipeUrl = response.recipes[0].f2f_url;
@@ -38,7 +39,21 @@ $("#search").on("submit", function (event) {
             $(".search-results").show()
             $(".search-results").empty()
             $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
-            $(".search-results").append("<a href=" + recipeUrl + ">");
+            // Displaying data from the API
+            var ahref = recipeUrl;
+            var wholediv = $("<div>");
+            var image = $("<img src=" + recipeImage + ">");
+            var imageDiv = $("<img>");
+            imageDiv.attr("src", recipeImage);
+            imageDiv.attr("alt", "mmmm food");
+            $(".search-results").append(imageDiv);
+            $(".search-results").append(recipeTitle);
+            $(".search-results").append("Brought to you by: " + recipePublisher);
+            ahref.append(image);
+            wholediv.append(ahref);
+
+            /*
+            $(".search-results").append("<a class href=" + recipeUrl + ">");
             var imageDiv = $("<img>");
             imageDiv.attr("src", recipeImage);
             imageDiv.attr("alt", "mmmm food");
@@ -46,6 +61,7 @@ $("#search").on("submit", function (event) {
             $(".search-results").append(recipeTitle);
             $(".search-results").append("Brought to you by: " + recipePublisher);
             $(".search-results").append("</a>");
+            */
         });
 });
 /*
