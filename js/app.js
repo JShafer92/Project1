@@ -12,7 +12,7 @@
 //     })
 // });
 
-// Here is our API
+// Here is our recipe API
 
 var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57";
 var queryURL = "https://food2fork.com/api/search?key=";
@@ -27,7 +27,7 @@ $("#search").on("submit", function (event) {
         dataType: "json",
         method: "GET"
     })
-        .then(function (response) {
+        .then(function(response) {
             var imageUrl = response.recipes.title;
         });
 
@@ -35,7 +35,7 @@ $("#search").on("submit", function (event) {
       $(".hero-search-filter").css({height: "150px", marginTop: "0px"})
       $(".search-results").hide()
       var searchTerm = $("#findtext").val()
-      $(".search-results").show(imageUrl)
+      $(".search-results").show()
       $(".search-results").empty()
       $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
 });
