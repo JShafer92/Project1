@@ -64,6 +64,7 @@
   height: 100%;
   width: 100%;
   overflow: auto;
+  float: top;
   background-color: rgba(0,0,0,0.5);
 }
 .grocerymodal-content{

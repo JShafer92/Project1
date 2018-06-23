@@ -55,14 +55,12 @@ function favoriteCloseModal (){
 // });
 
 // Here is our API
-
-var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57";
-var queryURL = "https://food2fork.com/api/search?key=";
+var queryURL = "http://bc.zombievision.net/p1/relay.php?q=";
 
 $("#search").on("submit", function (event) {
     event.preventDefault()
     var userinput = $("#findtext").val();
-    var fullRequest = queryURL + recipeAPI + "&q=" + userinput;
+    var fullRequest = queryURL + userinput;
     // calling an ajax request
     $.ajax({
         url: fullRequest,
