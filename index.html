@@ -20,8 +20,9 @@
         crossorigin="anonymous"></script>
 
 
-<!-- Compressed JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA==" crossorigin="anonymous"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.4.3/dist/js/foundation.min.js" integrity="sha256-mRYlCu5EG+ouD07WxLF8v4ZAZYCA6WrmdIXyn1Bv9Vk= sha384-KzKofw4qqetd3kvuQ5AdapWPqV1ZI+CnfyfEwZQgPk8poOLWaabfgJOfmW7uI+AV sha512-0gHfaMkY+Do568TgjJC2iMAV0dQlY4NqbeZ4pr9lVUTXQzKu8qceyd6wg/3Uql9qA2+3X5NHv3IMb05wb387rA=="
+        crossorigin="anonymous"></script>
 
 
 
@@ -46,30 +47,44 @@
                 <div id="grocerysimpleModal" class="grocerymodal">
                     <div class="grocerymodal-content">
                         <span class="grocerycloseBtn">&times;</span>
-                        <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaYM5-O2TkTLKDy3h9mSJzE98XYikCZho&q=grocery+store+near+me"
-                        allowfullscreen>
-                    </iframe>
+                        <iframe width="100%" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAaYM5-O2TkTLKDy3h9mSJzE98XYikCZho&q=grocery+store+near+me"
+                            allowfullscreen>
+                        </iframe>
+                        <form>
+                            <div class="grid-x grid-padding-x">
+                                <div class="small-3 cell">
+                                    <label for="middle-label" class="text-right middle">Where are we looking?</label>
+                                </div>
+                                <div class="small-4 cell">
+                                    <input type="text" id="middle-label" placeholder="ZIP,Address, or City.">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <li>
                         <a href="#">
                             <i class="fa fa-cutlery" aria-hidden="true"></i> Favorites</a>
                     </li>
-                </ul>
+            </ul>
             </div>
-          </div>
-          <li><a href="#"><i class="fa fa-cutlery" aria-hidden="true"></i> Favorites</a></li>
+        </div>
+        <li>
+            <a href="#">
+                <i class="fa fa-cutlery" aria-hidden="true"></i> Favorites</a>
+        </li>
         </ul>
-      </div>
+        </div>
     </header>
     <div class="search-results">
 
-  
- 
-    
-    <!-- <script src="js/vendor/jquery.js"></script> -->
-    <!-- <script src="js/vendor/what-input.js"></script> -->
-    <!-- <script src="js/vendor/foundation.js"></script> -->
-    <script src="js/app.js"></script>
-    <script src="js/map.js"></script>
-  </body>
+
+
+
+        <!-- <script src="js/vendor/jquery.js"></script> -->
+        <!-- <script src="js/vendor/what-input.js"></script> -->
+        <!-- <script src="js/vendor/foundation.js"></script> -->
+        <script src="js/app.js"></script>
+        <script src="js/map.js"></script>
+</body>
+
 </html>
