@@ -38,13 +38,14 @@ $("#search").on("submit", function (event) {
             $(".search-results").show()
             $(".search-results").empty()
             $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
+            $(".search-results").append("<a href=" + recipeUrl + ">");
             var imageDiv = $("<img>");
             imageDiv.attr("src", recipeImage);
             imageDiv.attr("alt", "mmmm food");
             $(".search-results").append(imageDiv);
             $(".search-results").append(recipeTitle);
             $(".search-results").append("Brought to you by: " + recipePublisher);
-            $(".search-results").append("Click the link for the recipe! " + recipeUrl);
+            $(".search-results").append("</a>");
         });
 });
 /*
