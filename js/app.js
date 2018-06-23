@@ -44,7 +44,7 @@ var queryURL = "http://bc.zombievision.net/p1/relay.php?q=";
 $("#search").on("submit", function (event) {
     event.preventDefault()
     var userinput = $("#findtext").val();
-    var fullRequest = + userinput;
+    var fullRequest = queryURL + userinput;
     // calling an ajax request
     $.ajax({
         url: fullRequest,
