@@ -23,6 +23,8 @@ function openModal (){
 function closeModal (){
   groceryModal.style.display = "none";
 }
+<<<<<<< HEAD
+=======
 
 // $(document).foundation();
 
@@ -78,3 +80,4 @@ $("#grocery").on("click", function(){
 })
 
 */
+>>>>>>> origin/devbranch
