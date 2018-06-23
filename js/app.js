@@ -17,18 +17,30 @@
 var recipeAPI = "f2ae69e21923e6f5b6bacaa4b9e6df57";
 var queryURL = "https://food2fork.com/api/search?key=";
 
-function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage){
-    
+function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
+
     // create div var
     var recipeDiv = $("<div>");
+    // creating recipeTitle
+    var recipeTitle = $("<div>" + recipeTitle + "</div>")
+    // create recipePublisher
+    var recipePublisher = $('<div> Brought to you by: "' + recipePublisher + '"</div>');
     // create a href var
-    var hrefLink = $('<a href="' +  recipeUrl + '">');
+    var hrefLink = $('<a href="' + recipeUrl + '">');
     // create image var
-    var imageTag = $('<img src="'+ recipeImage +'">');
+    var imageTag = $('<img src="' + recipeImage + '">');
     // append image to link
     hrefLink.append(imageTag);
     // append link to div
     recipeDiv.append(hrefLink);
+    // append recipeTitle
+    recipeDiv.append(recipeTitle);
+    // adding link to text
+    hrefLink.append(recipeTitle);
+    // append recipePublisher
+    recipeDiv.append(recipePublisher);
+    // adding link to text
+    hrefLink.append(recipePublisher);
     // append div to search results
     $(".search-results").append(recipeDiv);
 }
@@ -42,9 +54,9 @@ $("#search").on("submit", function (event) {
     var searchTerm = $("#findtext").val()
     $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
 
-    
+
     var fullRequest = queryURL + recipeAPI + "&q=" + searchTerm;
-    
+
     // calling an ajax request
     $.ajax({
         url: fullRequest,
@@ -56,17 +68,15 @@ $("#search").on("submit", function (event) {
 
             //Creating for loop for 10 entries
             for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
-                console.log(thisRecipe);
                 //Pulling data from the API
                 var recipeTitle = response.recipes[thisRecipe].title;
                 var recipePublisher = response.recipes[thisRecipe].publisher;
                 var recipeUrl = response.recipes[thisRecipe].f2f_url;
                 var recipeImage = response.recipes[thisRecipe].image_url;
-                console.log(recipeTitle, "out")
                 addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage);
-                
 
-            
+
+
             }
         });
 });
@@ -86,12 +96,12 @@ var groceryCloseBtn = document.getElementsByClassName("grocerycloseBtn")[0];
 
 groceryBtn.addEventListener("click", openModal);
 groceryCloseBtn.addEventListener("click", closeModal);
-function openModal (){
-  groceryModal.style.display = "block";
+function openModal() {
+    groceryModal.style.display = "block";
 }
 
-function closeModal (){
-  groceryModal.style.display = "none";
+function closeModal() {
+    groceryModal.style.display = "none";
 }
 
 
