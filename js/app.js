@@ -50,6 +50,23 @@ function closeModal() {
     groceryModal.style.display = "none";
 }
 
+
+// Modal Element for Favorites
+var favoriteyModal = document.getElementById("favoritesimpleModal");
+var favoriteBtn = document.getElementById("favoriteBtn")
+var favoriteCloseBtn = document.getElementsByClassName("favoritecloseBtn")[0];
+
+favoriteBtn.addEventListener("click", favoriteOpenModal);
+favoriteCloseBtn.addEventListener("click", favoriteCloseModal);
+function favoriteOpenModal (){
+  favoritesimpleModal.style.display = "block";
+}
+
+function favoriteCloseModal (){
+  favoriteModal.style.display = "none";
+}
+
+
 // $(document).foundation();
 
 // $(function() {
