@@ -1,4 +1,4 @@
-function addNewRecipe(recipeObject) {
+function addNewRecipe(recipeObject, targetDiv) {
     console.log(recipeObject);
     var recipeTitle = recipeObject.title;
     var recipePublisher = recipeObject.publisher;
@@ -32,7 +32,7 @@ function addNewRecipe(recipeObject) {
         // appending button
         recipeDiv.append(favoriteButton);
     // append div to search results
-    $(".search-results").append(recipeDiv);
+    $(targetDiv).append(recipeDiv);
 }
 
 function runRecipeSearch(searchTerm){
@@ -51,10 +51,7 @@ function runRecipeSearch(searchTerm){
                 //Pulling data from the API
                 var recipeObject = response.recipes[thisRecipe];
 
-                addNewRecipe(recipeObject);
-
-
-
+                addNewRecipe(recipeObject, ".search-results");
             }
         });
 }
