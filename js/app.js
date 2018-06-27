@@ -49,7 +49,6 @@ function openModal() {
 function closeModal() {
     groceryModal.style.display = "none";
 }
-<<<<<<< HEAD
 
 // Modal Element for Favorites
 var favoriteyModal = document.getElementById("favoritesimpleModal");
@@ -66,8 +65,6 @@ function favoriteCloseModal (){
   favoriteModal.style.display = "none";
 }
 
-=======
->>>>>>> origin/devbranch
 
 // $(document).foundation();
 
