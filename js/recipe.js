@@ -1,4 +1,9 @@
-function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
+function addNewRecipe(recipeObject) {
+    console.log(recipeObject);
+    var recipeTitle = recipeObject.title;
+    var recipePublisher = recipeObject.publisher;
+    var recipeUrl = recipeObject.f2f_url;
+    var recipeImage = recipeObject.image_url;
 
     // create div var
     var recipeDiv = $("<div>");
@@ -44,11 +49,9 @@ function runRecipeSearch(searchTerm){
             //Creating for loop for 10 entries
             for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
                 //Pulling data from the API
-                var recipeTitle = response.recipes[thisRecipe].title;
-                var recipePublisher = response.recipes[thisRecipe].publisher;
-                var recipeUrl = response.recipes[thisRecipe].f2f_url;
-                var recipeImage = response.recipes[thisRecipe].image_url;
-                addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage);
+                var recipeObject = response.recipes[thisRecipe];
+
+                addNewRecipe(recipeObject);
 
 
 
