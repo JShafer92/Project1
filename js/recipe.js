@@ -1,14 +1,16 @@
 function addNewRecipe(recipeObject, targetDiv) {
-    console.log(recipeObject);
     var recipeTitle = recipeObject.title;
     var recipePublisher = recipeObject.publisher;
     var recipeUrl = recipeObject.f2f_url;
     var recipeImage = recipeObject.image_url;
-
+    var recipeID = recipeObject.recipe_id;
     // create div var
     var recipeDiv = $("<div>");
-    // adding favorites button
-    var favoriteButton = $("<button id='favoriteButton'>Favorite</div>")
+    // haha, only display the favorites button in the normal list - this way we don't offer to favorite something from the faves list
+    if(targetDiv == ".search-results"){
+        // adding favorites button
+        var favoriteButton = $("<button class='favorites' recipe='" + recipeID + "'>Favorite</button>")
+    }
     // creating recipeTitle
     var recipeTitle = $("<div>" + recipeTitle + "</div>")
     // create recipePublisher
@@ -53,5 +55,9 @@ function runRecipeSearch(searchTerm){
 
                 addNewRecipe(recipeObject, ".search-results");
             }
+            $(".favorites").on("click", function(event){
+                var eventID = $(this).attr("recipe");
+                addFavorite(eventID);
+            });
         });
 }
