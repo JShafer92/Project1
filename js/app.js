@@ -50,7 +50,6 @@ function closeModal() {
     groceryModal.style.display = "none";
 }
 
-
 // Modal Element for Favorites
 var favoriteyModal = document.getElementById("favoritesimpleModal");
 var favoriteBtn = document.getElementById("favoriteBtn")
