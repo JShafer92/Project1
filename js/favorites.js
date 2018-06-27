@@ -83,6 +83,16 @@ function logOut(){
 }
 
 
+function addFavorite(recipeID){
+  if(firebase.auth().currentUser){
+
+  }
+  else{
+      
+  }
+}
+
+
 // HTML for login/logout button
 /*
 <div id="fbTest">
