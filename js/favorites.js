@@ -85,10 +85,11 @@ function logOut(){
 
 function addFavorite(recipeID){
   if(firebase.auth().currentUser){
-
+    var userID = firebase.auth().currentUser.uid;
+    
   }
   else{
-      
+    favoriteOpenModal();
   }
 }
 
