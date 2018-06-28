@@ -8,13 +8,19 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
 }
 
 $apiKey = "f2ae69e21923e6f5b6bacaa4b9e6df57";
-$apiURL = "https://food2fork.com/api/search?";
 
-$incQ = urlencode($_GET["q"]);
+if(isset($_GET["q"])) {
+    $apiURL = "https://food2fork.com/api/search?";
+    $incQ = urlencode($_GET["q"]);
 
-$requestAddress = $apiURL."key=".$apiKey."&q=".$incQ;
-//echo $requestAddress;
+    $requestAddress = $apiURL."key=".$apiKey."&q=".$incQ;
+}
+elseif(isset($_GET["r"])) {
+    $apiURL = "https://food2fork.com/api/get?";
+    $incR = urlencode($_GET["r"]);
 
+    $requestAddress = $apiURL."key=".$apiKey."&rId=".$incR;
+}
 // create a new cURL resource
 $request = curl_init();
 
@@ -27,6 +33,6 @@ curl_exec($request);
 
 // close cURL resource, and free up system resources
 curl_close($request);
-
+  
 
 ?>
