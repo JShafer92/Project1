@@ -14,7 +14,7 @@
           
 }
 
-.search-results{
+.lemon-styles{
   /* max-width: 1100px; */
   margin: auto;
   margin-left: 70px;
@@ -27,18 +27,18 @@
   grid-gap: 10px;
   
 }
-.search-results img {
+.lemon-styles img {
   max-width: 150px;
   }
 
-  .search-results > div {
+  .lemon-styles > div {
     border: 1px solid #CCC;
     padding: 10px;
     text-align: center;
     border-radius: 5px;
   }
 
-.search-results h1{
+.lemon-styles h1{
   font-size: 20px;  
 
 }
