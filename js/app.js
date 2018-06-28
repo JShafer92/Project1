@@ -62,7 +62,7 @@ function favoriteOpenModal (){
 }
 
 function favoriteCloseModal (){
-  favoriteModal.style.display = "none";
+  favoritesimpleModal.style.display = "none";
 }
 
 

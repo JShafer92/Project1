@@ -1,9 +1,16 @@
-function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
-
+function addNewRecipe(recipeObject, targetDiv) {
+    var recipeTitle = recipeObject.title;
+    var recipePublisher = recipeObject.publisher;
+    var recipeUrl = recipeObject.f2f_url;
+    var recipeImage = recipeObject.image_url;
+    var recipeID = recipeObject.recipe_id;
     // create div var
     var recipeDiv = $("<div>");
-    // adding favorites button
-    var favoriteButton = $("<button id='favoriteButton'>Favorite</div>")
+    // haha, only display the favorites button in the normal list - this way we don't offer to favorite something from the faves list
+    if(targetDiv == ".search-results"){
+        // adding favorites button
+        var favoriteButton = $("<button class='favorites' recipe='" + recipeID + "'>Favorite</button>")
+    }
     // creating recipeTitle
     var recipeTitle = $("<div>" + recipeTitle + "</div>")
     // create recipePublisher
@@ -27,7 +34,7 @@ function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
         // appending button
         recipeDiv.append(favoriteButton);
     // append div to search results
-    $(".search-results").append(recipeDiv);
+    $(targetDiv).append(recipeDiv);
 }
 
 function runRecipeSearch(searchTerm){
@@ -38,20 +45,38 @@ function runRecipeSearch(searchTerm){
         dataType: "json",
         method: "GET"
     })
-        .then(function (response) {
-            // Displaying data from the API
+    .then(function (response) {
+        // Displaying data from the API
 
-            //Creating for loop for 10 entries
-            for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
-                //Pulling data from the API
-                var recipeTitle = response.recipes[thisRecipe].title;
-                var recipePublisher = response.recipes[thisRecipe].publisher;
-                var recipeUrl = response.recipes[thisRecipe].f2f_url;
-                var recipeImage = response.recipes[thisRecipe].image_url;
-                addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage);
+        //Creating for loop for 10 entries
+        for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
+            //Pulling data from the API
+            var recipeObject = response.recipes[thisRecipe];
 
-
-
-            }
+            addNewRecipe(recipeObject, ".search-results");
+        }
+        $(".favorites").on("click", function(event){
+            var eventID = $(this).attr("recipe");
+            addFavorite(eventID);
         });
+    });
+}
+
+function grabOneRecipe(recipeID){
+    var queryURL = "http://bc.zombievision.net/p1/relay.php?r=" + recipeID;
+
+    $.ajax({
+        url: queryURL,
+        dataType: "json",
+        method: "GET"
+    })
+    .then(function (response) {
+        // Displaying data from the API
+        var recipeObject = response.recipe;
+        addNewRecipe(recipeObject, "#favorited-stuff");
+        $(".favorites").on("click", function(event){
+            var eventID = $(this).attr("recipe");
+            addFavorite(eventID);
+        });
+    });
 }
