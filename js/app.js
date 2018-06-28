@@ -20,7 +20,7 @@ $("#search").on("submit", function (event) {
     $(".search-results").show()
     $(".search-results").empty()
     var searchTerm = $("#findtext").val()
-    $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
+    // $(".search-results").append("<h1>Here are the results from search " + searchTerm + "</h1>")
 
     // function from recipe.js that creates AJAX request for search API
     runRecipeSearch(searchTerm);
@@ -51,7 +51,7 @@ function closeModal() {
 }
 
 // Modal Element for Favorites
-var favoriteyModal = document.getElementById("favoritesimpleModal");
+var favoriteModal = document.getElementById("favoritesimpleModal");
 var favoriteBtn = document.getElementById("favoriteBtn")
 var favoriteCloseBtn = document.getElementsByClassName("favoritecloseBtn")[0];
 
