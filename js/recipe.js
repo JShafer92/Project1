@@ -16,7 +16,7 @@ function addNewRecipe(recipeObject, targetDiv) {
     // create recipePublisher
     var recipePublisher = $('<div> Brought to you by: "' + recipePublisher + '"</div>');
     // create a href var
-    var hrefLink = $('<a href="' + recipeUrl + '">');
+    var hrefLink = $('<a href="' + recipeUrl + '" target="_blank">');
     // create image var
     var imageTag = $('<img src="' + recipeImage + '">');
     // append image to link
