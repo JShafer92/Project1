@@ -63,7 +63,6 @@ function runRecipeSearch(searchTerm){
 }
 
 function grabOneRecipe(recipeID){
-    console.log(recipeID)
     var queryURL = "http://bc.zombievision.net/p1/relay.php?r=" + recipeID;
 
     $.ajax({
@@ -73,9 +72,7 @@ function grabOneRecipe(recipeID){
     })
     .then(function (response) {
         // Displaying data from the API
-
-        var recipeObject = response.recipes[0];
-console.log(recipeObject)
+        var recipeObject = response.recipe;
         addNewRecipe(recipeObject, "#favorited-stuff");
         $(".favorites").on("click", function(event){
             var eventID = $(this).attr("recipe");
