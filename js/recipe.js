@@ -1,7 +1,7 @@
 function addNewRecipe(recipeTitle, recipePublisher, recipeUrl, recipeImage) {
 
     // create div var
-    var recipeDiv = $("<div>");
+    var recipeDiv = $("<div class=''>");
     // adding favorites button
     var favoriteButton = $("<button id='favoriteButton'>Favorite</div>")
     // creating recipeTitle

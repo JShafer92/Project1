@@ -19,10 +19,25 @@
   margin: auto;
   margin-left: 70px;
   margin-right: 70px;
-  border: 1px solid salmon;
+  /* border: 1px solid salmon; */
   padding: 30px;
   border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  
 }
+.search-results img {
+  max-width: 150px;
+  }
+
+  .search-results > div {
+    border: 1px solid #CCC;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
 .search-results h1{
   font-size: 20px;  
 
