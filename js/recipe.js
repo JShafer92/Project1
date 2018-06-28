@@ -45,19 +45,41 @@ function runRecipeSearch(searchTerm){
         dataType: "json",
         method: "GET"
     })
-        .then(function (response) {
-            // Displaying data from the API
+    .then(function (response) {
+        // Displaying data from the API
 
-            //Creating for loop for 10 entries
-            for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
-                //Pulling data from the API
-                var recipeObject = response.recipes[thisRecipe];
+        //Creating for loop for 10 entries
+        for (var thisRecipe = 0; thisRecipe < 11; thisRecipe++) {
+            //Pulling data from the API
+            var recipeObject = response.recipes[thisRecipe];
 
-                addNewRecipe(recipeObject, ".search-results");
-            }
-            $(".favorites").on("click", function(event){
-                var eventID = $(this).attr("recipe");
-                addFavorite(eventID);
-            });
+            addNewRecipe(recipeObject, ".search-results");
+        }
+        $(".favorites").on("click", function(event){
+            var eventID = $(this).attr("recipe");
+            addFavorite(eventID);
         });
+    });
+}
+
+function grabOneRecipe(recipeID){
+    console.log(recipeID)
+    var queryURL = "http://bc.zombievision.net/p1/relay.php?r=" + recipeID;
+
+    $.ajax({
+        url: queryURL,
+        dataType: "json",
+        method: "GET"
+    })
+    .then(function (response) {
+        // Displaying data from the API
+
+        var recipeObject = response.recipes[0];
+console.log(recipeObject)
+        addNewRecipe(recipeObject, "#favorited-stuff");
+        $(".favorites").on("click", function(event){
+            var eventID = $(this).attr("recipe");
+            addFavorite(eventID);
+        });
+    });
 }

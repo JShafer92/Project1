@@ -59,8 +59,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   });
 
 // contains all login code
-function logIn(){
-    console.log("logged in", firebase.auth().currentUser.uid);     
+function logIn(){  
     // hide loading text
     document.getElementById('loader').style.display = 'none'; 
     // clear login button
@@ -72,7 +71,12 @@ function logIn(){
       logOut();
     });
 
-    // code for displaying favorites list
+    // when a new item is added to the list, display it in the favorites page
+  firebase.database().ref(firebase.auth().currentUser.uid).on("child_added", function(datasnapshot){
+    var thisRecipeID = datasnapshot.val();
+    // grab this recipe ID - code in recipe.js
+    grabOneRecipe(thisRecipeID);
+  });
 }
 
 function logOut(){
@@ -82,16 +86,17 @@ function logOut(){
     // code for deleting shown favorites list
 }
 
-
+// if logged in, push the item to the favorites list, in not, just show the login prompt
 function addFavorite(recipeID){
   if(firebase.auth().currentUser){
     var userID = firebase.auth().currentUser.uid;
-    
+    firebase.database().ref(userID).child(recipeID).set(recipeID);
   }
   else{
     favoriteOpenModal();
   }
 }
+
 
 
 // HTML for login/logout button

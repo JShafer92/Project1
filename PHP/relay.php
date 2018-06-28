@@ -20,7 +20,6 @@ elseif(isset($_GET["r"])) {
     $incR = urlencode($_GET["r"]);
 
     $requestAddress = $apiURL."key=".$apiKey."&rId=".$incR;
-    echo $requestAddress;
 }
 // create a new cURL resource
 $request = curl_init();
