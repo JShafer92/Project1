@@ -6,14 +6,14 @@ $(document).ready(function () {
 
     var queryA = "&q=grocery+store+near";
 
-    var queryUser = document.getElementById('zip').value;
+    // onclick to get new search from user input
+    $('#searchBtn').on('click', function () {
+        event.preventDefault();
+        //inserts into new map
+        var queryUser = $("#zip").val();
 
-    var newSearch = mapURL + mapAPI + queryA + queryUser
-// onclick to get new search from user input
-$('#searchBtn').on('click', function(){
-event.preventDefault();
-//inserts into new map
-$('#iMap').attr('src', newSearch)
-});
-
+        var newSearch = mapURL + mapAPI + queryA + queryUser;
+        $('#iMap').attr('src', newSearch);
     });
+
+});
