@@ -65,7 +65,6 @@ function favoriteCloseModal (){
   favoritesimpleModal.style.display = "none";
 }
 
-
 // $(document).foundation();
 
 // $(function() {

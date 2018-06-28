@@ -6,15 +6,14 @@ $(document).ready(function () {
 
     var queryA = "&q=grocery+store+near";
 
-    var queryUser = "";
+    var queryUser = document.getElementById('zip').value;
 
-    $.ajax({
-        url: mapURL + mapAPI + queryA + queryUser,
-        method: "GET",
-    }).then(function (response) {
-
-
-
-    });
+    var newSearch = mapURL + mapAPI + queryA + queryUser
+// onclick to get new search from user input
+$('#searchBtn').on('click', function(){
+event.preventDefault();
+//inserts into new map
+$('#iMap').attr('src', newSearch)
+});
 
     });
